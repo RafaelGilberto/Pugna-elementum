@@ -9,12 +9,34 @@
   </head>
   <body>
     <header id="header">
-      <h1>Pugna elementum</h1>
-      <button id="btn-start">Game start!</button>
+      <img id="img-start" src="./image/nature.jpg"/>
+      <div id= "title">
+        <h1>Pugna elementum</h1>
+      </div>      
+      <button id="btn-next">Next !</button>
     </header>
-    <div>
-
-    </div>
+    <section id="selection">
+      <div id="">
+        <label for="username" class="select">Username:</label>
+        <input type="text" id="username"/>
+      </div>
+      <div id="">
+        <label for="difficulty" class="select">Difficult:</label>
+        <select name="difficulty" id="game-difficult">       
+          <option value="Easy">Easy</option>
+          <option value="Normal">Normal</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+      <div>        
+        <button id="btn-back">Return</button>
+        <button id="btn-start">Game start!</button>
+      </div>
+    </section>
+    <section id="gameSection">
+      <p>game</p>
+    </section>
+    <script src="./src/game.js"></script>
     <script src="./src/script.js"></script>
   </body>
 </html>

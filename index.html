@@ -4,37 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./styles/style.css" rel="stylesheet">
+    <link href="./styles/style.css" rel="stylesheet" />
     <title>Pugna elementum</title>
   </head>
   <body>
     <header id="header">
-      <img id="img-start" src="./image/nature.jpg"/>
-      <div id= "title">
+      <img id="img-start" src="./image/nature.jpg" />
+      <div id="title">
         <h1>Pugna elementum</h1>
-      </div>      
+      </div>
       <button id="btn-next">Next !</button>
     </header>
-    <section id="selection">
+    <section id="firstPart" class="hidden">
       <div id="">
         <label for="username" class="select">Username:</label>
-        <input type="text" id="username"/>
+        <input type="text" id="username" />
       </div>
       <div id="">
         <label for="difficulty" class="select">Difficult:</label>
-        <select name="difficulty" id="game-difficult">       
+        <select name="difficulty" id="game-difficult">
           <option value="Easy">Easy</option>
           <option value="Normal">Normal</option>
           <option value="Hard">Hard</option>
         </select>
       </div>
-      <div>        
+      <div>
         <button id="btn-back">Return</button>
         <button id="btn-start">Game start!</button>
       </div>
     </section>
-    <section id="gameSection">
-      <p>game</p>
+    <section>
+      <img
+        id="elements-hierarchy"
+        src="./image/elements-hierarchy.png"
+        class="hidden"
+      />
+      <div id="gameSection" class="hidden">
+        <div id="playerArea">
+          <img class="card-elements" src="./image/fire.jpg" />
+          <img class="card-elements" src="./image/earth.jpg" />
+          <img class="card-elements" src="./image/water.jpg" />
+        </div>
+        <div id="botArea" class="bot-card"></div>
+      </div>
     </section>
     <script src="./src/game.js"></script>
     <script src="./src/script.js"></script>

@@ -1,93 +1,131 @@
-*{
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
+* {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
 }
-body{
-    display: flex;
-    flex-direction: column;    
-    align-items:center;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-header {    
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;    
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
-#title{
-    color:gold;
-    font-size: 30px;
-    font-style: italic;
-    text-transform:uppercase;
-    margin-top: -600px;
-    padding: 10px 30px 10px 30px;
-    position:absolute;
-    background-color: SaddleBrown;
-    text-shadow: 3px 3px LightSlateGray;
-    border-radius: 10px;
-    box-shadow: 4px 4px 4px 4px black;
+#title {
+  color: gold;
+  font-size: 30px;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-top: -600px;
+  padding: 10px 30px 10px 30px;
+  position: absolute;
+  background-color: SaddleBrown;
+  text-shadow: 3px 3px LightSlateGray;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px 4px black;
 }
-#img-start{
-    width:800px;
-    height: 970px;
-    opacity: 70%;
-    position:relative;
+#img-start {
+  width: 800px;
+  height: 970px;
+  opacity: 70%;
+  position: relative;
 }
-#btn-next{
-    border-radius: 30px;
-    font-size: 15px;
-    color:blue;
-    font-weight: bold;
-    margin-top: 200px;
-    padding: 20px 50px 20px 50px;
-    background-color: lightgreen;
-    position:absolute;
-    border: 5px solid black;
-    cursor: pointer;
+#btn-next {
+  border-radius: 30px;
+  font-size: 15px;
+  color: blue;
+  font-weight: bold;
+  margin-top: 200px;
+  padding: 20px 50px 20px 50px;
+  background-color: lightgreen;
+  position: absolute;
+  border: 5px solid black;
+  cursor: pointer;
 }
-#btn-start{
-    border-radius: 15px;
-    font-size: 13px;
-    color:yellow;
-    font-weight: bold;
-    margin-top: 75px;
-    padding: 10px 30px 10px 30px;
-    background-color: DarkSlateGray;    
-    border: 2px solid black;
-    cursor: pointer;
+#btn-start {
+  border-radius: 15px;
+  font-size: 13px;
+  color: yellow;
+  font-weight: bold;
+  margin-top: 75px;
+  padding: 10px 30px 10px 30px;
+  background-color: DarkSlateGray;
+  border: 2px solid black;
+  cursor: pointer;
 }
-#btn-back{
-    border-radius: 15px;
-    font-size: 13px;
-    color:yellow;
-    font-weight: bold;
-    margin-right: 30px;
-    padding: 10px 30px 10px 30px;
-    background-color: DarkSlateGray;    
-    border: 2px solid black;
-    cursor: pointer;
+#btn-back {
+  border-radius: 15px;
+  font-size: 13px;
+  color: yellow;
+  font-weight: bold;
+  margin-right: 30px;
+  padding: 10px 30px 10px 30px;
+  background-color: DarkSlateGray;
+  border: 2px solid black;
+  cursor: pointer;
 }
-#selection{
-    display: flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    background-color: salmon;
-    width: 450px;
-    margin-top: 240px;
-    height: 450px;
-    border-radius: 250px;
+.selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: salmon;
+  width: 450px;
+  margin-top: 240px;
+  height: 450px;
+  border-radius: 250px;
 }
-.select{
-    font-size: 20px;
-    font-weight: bold;        
+.select {
+  font-size: 20px;
+  font-weight: bold;
 }
-#game-difficult{
-    padding: 2px 10px 2px 10px;
-    border-radius: 25px;
-    background-color: white;
-    text-align:center;
+
+.gameSection {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+  width: 800px;
+  height: 970px;
+}
+
+.card-elements {
+  width: 140px;
+  height: 200px;
+  margin: 20px;
+  margin-top: 300px;
+  border-radius: 10px;
+}
+
+.bot-card {
+  background-color: black;
+  width: 140px;
+  height: 200px;
+  margin: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+#game-difficult {
+  padding: 2px 10px 2px 10px;
+  border-radius: 25px;
+  background-color: white;
+  text-align: center;
+}
+
+#elements-hierarchy {
+  width: 250px;
+  height: 250px;
+}
+
+section {
+  display: flex;
+  align-items: center;
 }

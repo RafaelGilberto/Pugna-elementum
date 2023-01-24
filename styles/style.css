@@ -17,6 +17,11 @@ header {
 .hidden {
   display: none;
 }
+p {
+  margin-top: 150px;
+  font-weight: bold;
+  font-size: 30px;
+}
 #title {
   color: gold;
   font-size: 30px;

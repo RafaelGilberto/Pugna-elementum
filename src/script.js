@@ -37,9 +37,10 @@ btnFire.addEventListener("click", () => {
   gameStart.flipPlayerCards("fire");
   const timeFlip = setTimeout(() => {
     gameStart.flipBotBack();
-    gameStart.flipPlayerCardsBack();
+    //gameStart.flipPlayerCardsBack("fire");
   }, 2000);
 });
+
 btnWater.addEventListener("click", () => {
   const playerStatus = new Player("Rafael", 100, 100, "water");
   const botStatus = new Bot("Alexandre", 100, 100);
@@ -50,7 +51,7 @@ btnWater.addEventListener("click", () => {
   gameStart.flipPlayerCards("water");
   const timeFlip = setTimeout(() => {
     gameStart.flipBotBack();
-    gameStart.flipPlayerCardsBack();
+    //gameStart.flipPlayerCardsBack();
   }, 2000);
 });
 btnEarth.addEventListener("click", () => {
@@ -63,6 +64,6 @@ btnEarth.addEventListener("click", () => {
   gameStart.flipPlayerCards("earth");
   const timeFlip = setTimeout(() => {
     gameStart.flipBotBack();
-    gameStart.flipPlayerCardsBack();
+    //gameStart.flipPlayerCardsBack();
   }, 2000);
 });

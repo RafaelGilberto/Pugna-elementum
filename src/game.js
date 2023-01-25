@@ -28,8 +28,22 @@ class Game {
   flipPlayerCards(chosenCard) {
     const cardsOnPlayerSide = document.getElementsByClassName("card-elements");
     const cardsDiv = document.getElementsByClassName("on");
+    let position;
+    if (chosenCard == "fire") {
+      position = 0;
+    } else if (chosenCard == "water") {
+      position = 2;
+    } else {
+      position = 1;
+    }
+    for (let i = 0; i < cardsDiv.length; i++) {
+      if (i !== position) {
+        cardsDiv[i].firstChild.remove();
+      }
+    }
 
     //console.log(cardsOnPlayerSide.length);
+    /*
     for (let i = 0; i < cardsOnPlayerSide.length; i++) {
       if (cardsOnPlayerSide[i].getAttribute("id") == `${chosenCard}Img`) {
         continue;
@@ -38,11 +52,38 @@ class Game {
       cardsOnPlayerSide[i].classList.replace("card-elements", "hiddenCards");
       cardsDiv[i].classList.replace("on", "off");
     }
-    console.log(cardsOnPlayerSide);
+    console.log(cardsOnPlayerSide);*/
+
     //console.log(cardsOnPlayerSide.length);
     //console.log(`${chosenCard}Img`);
   }
-  flipPlayerCardsBack() {
+  flipPlayerCardsBack(player) {
+    let position;
+    const cardsDivOn = document.getElementsByClassName("on");
+    if (player == "fire") {
+      position = 0;
+    } else if (player == "water") {
+      position = 2;
+    } else {
+      position = 1;
+    }
+    for (let i = 0; i < cardsDivOn.length; i++) {
+      if (i !== position) {
+        const cardImg = document.createElement("img");
+        if (i == 0) {
+          cardImg.setAttribute("src", `./image/fire.jpg`);
+          cardImg.classList.add("card-elements");
+        } else if (i == 1) {
+          cardImg.setAttribute("src", `./image/earth.jpg`);
+          cardImg.classList.add("card-elements");
+        } else {
+          cardImg.setAttribute("src", `./image/water.jpg`);
+          cardImg.classList.add("card-elements");
+        }
+        cardsDivOn[i].appendChild(cardImg);
+      }
+    }
+    /*
     const cardsFlipped = document.getElementsByClassName("hiddenCards");
     const cardsDivOff = document.getElementsByClassName("off");
     for (let i = 0; i < cardsFlipped.length; i++) {
@@ -50,7 +91,7 @@ class Game {
     }
     for (let i = 0; i < cardsDivOff.length; i++) {
       cardsDivOff[i].classList.replace("off", "on");
-    }
+    }*/
   }
 
   gameResult(player, bot) {

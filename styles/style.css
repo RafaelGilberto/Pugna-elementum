@@ -107,8 +107,9 @@ p {
 .card-elements {
   width: 140px;
   height: 200px;
+  /*
   margin: 20px;
-  margin-top: 300px;
+  margin-top: 300px;*/
   border-radius: 10px;
   background-color: black;
 }
@@ -151,9 +152,10 @@ section {
   align-items: center;
   justify-content: center;
 }
-.off {
+.on {
   width: 140px;
   height: 200px;
+
   margin: 20px;
   margin-top: 300px;
   border-radius: 10px;

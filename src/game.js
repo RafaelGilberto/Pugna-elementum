@@ -27,32 +27,32 @@ class Game {
   }
   flipPlayerCards(chosenCard) {
     const cardsOnPlayerSide = document.getElementsByClassName("card-elements");
-    console.log(cardsOnPlayerSide);
+    const cardsDiv = document.getElementsByClassName("on");
+
+    //console.log(cardsOnPlayerSide.length);
     for (let i = 0; i < cardsOnPlayerSide.length; i++) {
-      if (cardsOnPlayerSide[i].getAttribute("id") !== `${chosenCard}Img`) {
-        //cardsOnPlayerSide[i].classList.replace("card-elements", "bot-card");
-        cardsOnPlayerSide[i].setAttribute("src", " ");
+      if (cardsOnPlayerSide[i].getAttribute("id") == `${chosenCard}Img`) {
+        continue;
       }
-      /*
-      cardsOnPlayerSide[i].setAttribute(
-        "id",
-        `${cardsOnPlayerSide[i].getAttribute("id").replace("Img", "Off")}`
-      );
-      console.log(cardsOnPlayerSide[i].getAttribute("id"));*/
+      console.log(cardsOnPlayerSide[i].getAttribute("id"));
+      cardsOnPlayerSide[i].classList.replace("card-elements", "hiddenCards");
+      cardsDiv[i].classList.replace("on", "off");
     }
+    console.log(cardsOnPlayerSide);
+    //console.log(cardsOnPlayerSide.length);
+    //console.log(`${chosenCard}Img`);
   }
   flipPlayerCardsBack() {
-    const cardsFlipped = document.getElementsByClassName("card-elements");
+    const cardsFlipped = document.getElementsByClassName("hiddenCards");
+    const cardsDivOff = document.getElementsByClassName("off");
     for (let i = 0; i < cardsFlipped.length; i++) {
-      if (i == 0) {
-        cardsOnPlayerSide[i].setAttribute("src", "./image/fire.jpg");
-      } else if (i == 1) {
-        cardsOnPlayerSide[i].setAttribute("src", "./image/earth.jpg");
-      } else {
-        cardsOnPlayerSide[i].setAttribute("src", "./image/water.jpg");
-      }
+      cardsFlipped[i].classList.replace("hiddenCards", "card-elements");
+    }
+    for (let i = 0; i < cardsDivOff.length; i++) {
+      cardsDivOff[i].classList.replace("off", "on");
     }
   }
+
   gameResult(player, bot) {
     let winner = "";
     const pResult = document.getElementsByTagName("p");

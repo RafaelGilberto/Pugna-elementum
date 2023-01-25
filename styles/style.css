@@ -17,6 +17,9 @@ header {
 .hidden {
   display: none;
 }
+.hiddenCards {
+  display: none;
+}
 p {
   margin-top: 150px;
   font-weight: bold;
@@ -141,4 +144,18 @@ p {
 section {
   display: flex;
   align-items: center;
+}
+
+#playerArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.off {
+  width: 140px;
+  height: 200px;
+  margin: 20px;
+  margin-top: 300px;
+  border-radius: 10px;
+  background-color: black;
 }

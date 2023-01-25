@@ -22,48 +22,55 @@ btnReturn.addEventListener("click", () => {
 });
 
 btnStart.addEventListener("click", () => {
+  const atkPlayer = document.getElementById("playerAttack");
+  const hpPlayer = document.getElementById("playerHP");
+  const nmPlayer = document.getElementById("playerName");
+  const userNmPlayer = document.getElementById("username").value;
+  const nmBot = document.getElementById("botName");
+  const atkBot = document.getElementById("botAttack");
+  const hpBot = document.getElementById("botHP");
+  let botNames = ["Draven", "Janna", "Aurelion", "Teemo"];
+
   slc.classList.replace("selection", "hidden");
   gameBoard.classList.replace("hidden", "gameSection");
   elementHierarchyImg.classList.remove("hidden");
+  atkPlayer.innerHTML = `AttackDamage : 30`;
+  hpPlayer.innerHTML = `HP : 120`;
+  nmPlayer.innerHTML = `Player : ${userNmPlayer}`;
+  nmBot.innerHTML = `BOT.${botNames[Math.round(Math.random() * 3)]}`;
+  atkBot.innerHTML = `AttackDamage : ${difficulty[selectLevel()].attack}`;
+  hpBot.innerHTML = `HP : ${difficulty[selectLevel()].HP}`;
 });
-
+const playerStatus = new Player(120, 30, "fire");
+const botStatus = new Bot(
+  difficulty[selectLevel()].HP,
+  difficulty[selectLevel()].attack
+);
+const gameStart = new Game();
 btnFire.addEventListener("click", () => {
-  const playerStatus = new Player("Rafael", 100, 100, "fire");
-  const botStatus = new Bot("Alexandre", 100, 100);
-  const gameStart = new Game();
+  playerStatus.card = "fire";
   botStatus.botCard();
   gameStart.flipBotCard(botStatus.result);
   gameStart.gameResult(playerStatus, botStatus);
-  //gameStart.flipPlayerCards("fire");
   const timeFlip = setTimeout(() => {
     gameStart.flipBotBack();
-    //gameStart.flipPlayerCardsBack("fire");
   }, 1500);
 });
-
 btnWater.addEventListener("click", () => {
-  const playerStatus = new Player("Rafael", 100, 100, "water");
-  const botStatus = new Bot("Alexandre", 100, 100);
-  const gameStart = new Game();
+  playerStatus.card = "water";
   botStatus.botCard();
   gameStart.flipBotCard(botStatus.result);
   gameStart.gameResult(playerStatus, botStatus);
-  //gameStart.flipPlayerCards("water");
   const timeFlip = setTimeout(() => {
     gameStart.flipBotBack();
-    //gameStart.flipPlayerCardsBack();
   }, 1500);
 });
 btnEarth.addEventListener("click", () => {
-  const playerStatus = new Player("Rafael", 100, 100, "earth");
-  const botStatus = new Bot("Alexandre", 100, 100);
-  const gameStart = new Game();
+  playerStatus.card = "earth";
   botStatus.botCard();
   gameStart.flipBotCard(botStatus.result);
   gameStart.gameResult(playerStatus, botStatus);
-  //gameStart.flipPlayerCards("earth");
   const timeFlip = setTimeout(() => {
     gameStart.flipBotBack();
-    //gameStart.flipPlayerCardsBack();
   }, 1500);
 });

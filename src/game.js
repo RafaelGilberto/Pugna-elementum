@@ -1,3 +1,30 @@
+const difficulty = [
+  {
+    level: "Easy",
+    HP: 90,
+    attack: 20,
+  },
+  {
+    level: "Normal",
+    HP: 120,
+    attack: 30,
+  },
+  {
+    level: "Hard",
+    HP: 150,
+    attack: 40,
+  },
+];
+function selectLevel() {
+  const gameLevel = document.getElementById("game-difficult");
+  if (gameLevel.value == "Easy") {
+    return 0;
+  } else if (gameLevel.value == "Normal") {
+    return 1;
+  } else {
+    return 2;
+  }
+}
 class Game {
   constructor() {}
   flipBotCard(botCard) {
@@ -25,80 +52,42 @@ class Game {
       botFlipBack[i].remove();
     }
   }
-  /*
-  flipPlayerCards(chosenCard) {
-    const cardsOnPlayerSide = document.getElementsByClassName("card-elements");
-    const cardsDiv = document.getElementsByClassName("on");
-    let position;
-    if (chosenCard == "fire") {
-      position = 0;
-    } else if (chosenCard == "water") {
-      position = 2;
-    } else {
-      position = 1;
-    }
-    for (let i = 0; i < 3; i++) {
-      if (i !== position) {
-        console.log(cardsDiv[i]);
-        cardsDiv[i].removeChild(cardsOnPlayerSide[i]);
-      }
-    }
-  }  
-  flipPlayerCardsBack(player) {
-    let position;
-    const cardsDivOn = document.getElementsByClassName("on");
-    if (player == "fire") {
-      position = 0;
-    } else if (player == "water") {
-      position = 2;
-    } else {
-      position = 1;
-    }
-    for (let i = 0; i < cardsDivOn.length; i++) {
-      if (i !== position) {
-        const cardImg = document.createElement("img");
-        if (i == 0) {
-          cardImg.setAttribute("src", `./image/fire.jpg`);
-          cardImg.classList.add("card-elements");
-        } else if (i == 1) {
-          cardImg.setAttribute("src", `./image/earth.jpg`);
-          cardImg.classList.add("card-elements");
-        } else {
-          cardImg.setAttribute("src", `./image/water.jpg`);
-          cardImg.classList.add("card-elements");
-        }
-        cardsDivOn[i].appendChild(cardImg);
-      }
-    }
-    
-  }
-  */
 
   gameResult(player, bot) {
     let winner = "";
     const pResult = document.getElementsByTagName("p");
+    const hpPlayer = document.getElementById("playerHP");
+    const hpBot = document.getElementById("botHP");
     if (player.card == "earth" && bot.result == "water") {
       winner = "You Lost! >_<";
       player.receiveDamage(bot.attack());
+      hpPlayer.innerHTML = `HP : ${player.health}`;
     } else if (player.card == "earth" && bot.result == "fire") {
       winner = "You Won! =)";
       bot.receiveDamage(player.attack());
+      hpBot.innerHTML = `HP : ${bot.health}`;
     } else if (player.card == "water" && bot.result == "earth") {
       winner = "You Won! =)";
       bot.receiveDamage(player.attack());
+      hpBot.innerHTML = `HP : ${bot.health}`;
     } else if (player.card == "water" && bot.result == "fire") {
       winner = "You Lost! >_<";
       player.receiveDamage(bot.attack());
+      hpPlayer.innerHTML = `HP : ${player.health}`;
     } else if (player.card == "fire" && bot.result == "earth") {
       winner = "You Lost! >_<";
       player.receiveDamage(bot.attack());
+      hpPlayer.innerHTML = `HP : ${player.health}`;
     } else if (player.card == "fire" && bot.result == "water") {
       winner = "You Won! =)";
       bot.receiveDamage(player.attack());
+      hpBot.innerHTML = `HP : ${bot.health}`;
     } else {
       winner = "It's a tie! -_-'";
       player.receiveDamage(bot.attack());
       bot.receiveDamage(player.attack());
+      hpPlayer.innerHTML = `HP : ${player.health}`;
+      hpBot.innerHTML = `HP : ${bot.health}`;
     }
     pResult[0].innerHTML = `Result : ${winner}`;
     this.endGame(player, bot);
@@ -111,12 +100,11 @@ class Game {
   }
 }
 class Player {
-  constructor(name, health, strengh, card) {
+  constructor(health, strengh) {
     const difficulty = document.getElementById("game-difficult").value;
-    this.name = name;
     this.health = health;
     this.strengh = strengh;
-    this.card = card;
+    this.card = "";
   }
   receiveDamage(damage) {
     if (this.health - damage < 0) {
@@ -131,10 +119,12 @@ class Player {
 }
 
 class Bot extends Player {
-  constructor(name, health, strengh) {
-    super(name, health, strengh);
+  constructor(health, strengh) {
+    super(health, strengh);
     this.cards = ["fire", "earth", "water"];
     this.result = "";
+    this.health = health;
+    this.strengh = strengh;
   }
   botCard() {
     this.result = this.cards[Math.round(Math.random() * 2)];

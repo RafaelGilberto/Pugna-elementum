@@ -33,12 +33,12 @@ btnFire.addEventListener("click", () => {
   const gameStart = new Game();
   botStatus.botCard();
   gameStart.flipBotCard(botStatus.result);
-  gameStart.gameResult(playerStatus.card, botStatus.result);
-  gameStart.flipPlayerCards("fire");
+  gameStart.gameResult(playerStatus, botStatus);
+  //gameStart.flipPlayerCards("fire");
   const timeFlip = setTimeout(() => {
     gameStart.flipBotBack();
     //gameStart.flipPlayerCardsBack("fire");
-  }, 2000);
+  }, 1500);
 });
 
 btnWater.addEventListener("click", () => {
@@ -47,12 +47,12 @@ btnWater.addEventListener("click", () => {
   const gameStart = new Game();
   botStatus.botCard();
   gameStart.flipBotCard(botStatus.result);
-  gameStart.gameResult(playerStatus.card, botStatus.result);
-  gameStart.flipPlayerCards("water");
+  gameStart.gameResult(playerStatus, botStatus);
+  //gameStart.flipPlayerCards("water");
   const timeFlip = setTimeout(() => {
     gameStart.flipBotBack();
     //gameStart.flipPlayerCardsBack();
-  }, 2000);
+  }, 1500);
 });
 btnEarth.addEventListener("click", () => {
   const playerStatus = new Player("Rafael", 100, 100, "earth");
@@ -60,10 +60,10 @@ btnEarth.addEventListener("click", () => {
   const gameStart = new Game();
   botStatus.botCard();
   gameStart.flipBotCard(botStatus.result);
-  gameStart.gameResult(playerStatus.card, botStatus.result);
-  gameStart.flipPlayerCards("earth");
+  gameStart.gameResult(playerStatus, botStatus);
+  //gameStart.flipPlayerCards("earth");
   const timeFlip = setTimeout(() => {
     gameStart.flipBotBack();
     //gameStart.flipPlayerCardsBack();
-  }, 2000);
+  }, 1500);
 });

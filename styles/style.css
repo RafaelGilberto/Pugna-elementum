@@ -101,7 +101,7 @@ p {
   align-items: center;
   background-color: bisque;
   width: 800px;
-  height: 970px;
+  height: auto;
 }
 
 .card-elements {
@@ -160,4 +160,19 @@ section {
   margin-top: 300px;
   border-radius: 10px;
   background-color: black;
+}
+
+#playerStatusScreen {
+  margin-top: 300px;
+  margin-right: 350px;
+  margin-bottom: -275px;
+}
+
+#botStatusScreen {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 150px;
+}
+#botInfo {
+  margin-top: 40px;
 }

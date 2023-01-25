@@ -25,6 +25,7 @@ class Game {
       botFlipBack[i].remove();
     }
   }
+  /*
   flipPlayerCards(chosenCard) {
     const cardsOnPlayerSide = document.getElementsByClassName("card-elements");
     const cardsDiv = document.getElementsByClassName("on");
@@ -36,27 +37,13 @@ class Game {
     } else {
       position = 1;
     }
-    for (let i = 0; i < cardsDiv.length; i++) {
+    for (let i = 0; i < 3; i++) {
       if (i !== position) {
-        cardsDiv[i].firstChild.remove();
+        console.log(cardsDiv[i]);
+        cardsDiv[i].removeChild(cardsOnPlayerSide[i]);
       }
     }
-
-    //console.log(cardsOnPlayerSide.length);
-    /*
-    for (let i = 0; i < cardsOnPlayerSide.length; i++) {
-      if (cardsOnPlayerSide[i].getAttribute("id") == `${chosenCard}Img`) {
-        continue;
-      }
-      console.log(cardsOnPlayerSide[i].getAttribute("id"));
-      cardsOnPlayerSide[i].classList.replace("card-elements", "hiddenCards");
-      cardsDiv[i].classList.replace("on", "off");
-    }
-    console.log(cardsOnPlayerSide);*/
-
-    //console.log(cardsOnPlayerSide.length);
-    //console.log(`${chosenCard}Img`);
-  }
+  }  
   flipPlayerCardsBack(player) {
     let position;
     const cardsDivOn = document.getElementsByClassName("on");
@@ -83,47 +70,60 @@ class Game {
         cardsDivOn[i].appendChild(cardImg);
       }
     }
-    /*
-    const cardsFlipped = document.getElementsByClassName("hiddenCards");
-    const cardsDivOff = document.getElementsByClassName("off");
-    for (let i = 0; i < cardsFlipped.length; i++) {
-      cardsFlipped[i].classList.replace("hiddenCards", "card-elements");
-    }
-    for (let i = 0; i < cardsDivOff.length; i++) {
-      cardsDivOff[i].classList.replace("off", "on");
-    }*/
+    
   }
+  */
 
   gameResult(player, bot) {
     let winner = "";
     const pResult = document.getElementsByTagName("p");
-    if (player == "earth" && bot == "water") {
+    if (player.card == "earth" && bot.result == "water") {
       winner = "You Lost! >_<";
-    } else if (player == "earth" && bot == "fire") {
+      player.receiveDamage(bot.attack());
+    } else if (player.card == "earth" && bot.result == "fire") {
       winner = "You Won! =)";
-    } else if (player == "water" && bot == "earth") {
+      bot.receiveDamage(player.attack());
+    } else if (player.card == "water" && bot.result == "earth") {
       winner = "You Won! =)";
-    } else if (player == "water" && bot == "fire") {
+      bot.receiveDamage(player.attack());
+    } else if (player.card == "water" && bot.result == "fire") {
       winner = "You Lost! >_<";
-    } else if (player == "fire" && bot == "earth") {
+      player.receiveDamage(bot.attack());
+    } else if (player.card == "fire" && bot.result == "earth") {
       winner = "You Lost! >_<";
-    } else if (player == "fire" && bot == "water") {
+      player.receiveDamage(bot.attack());
+    } else if (player.card == "fire" && bot.result == "water") {
       winner = "You Won! =)";
+      bot.receiveDamage(player.attack());
     } else {
       winner = "It's a tie! -_-'";
+      player.receiveDamage(bot.attack());
+      bot.receiveDamage(player.attack());
     }
     pResult[0].innerHTML = `Result : ${winner}`;
+    this.endGame(player, bot);
+  }
+  endGame(player, bot) {
+    if (player.health <= 0 && bot.health > 0) {
+    } else if (player.health > 0 && bot.health <= 0) {
+    } else {
+    }
   }
 }
 class Player {
   constructor(name, health, strengh, card) {
+    const difficulty = document.getElementById("game-difficult").value;
     this.name = name;
     this.health = health;
     this.strengh = strengh;
     this.card = card;
   }
   receiveDamage(damage) {
-    this.health -= damage;
+    if (this.health - damage < 0) {
+      this.health = 0;
+    } else {
+      this.health -= damage;
+    }
   }
   attack() {
     return this.strengh;

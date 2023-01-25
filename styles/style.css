@@ -107,6 +107,7 @@ p {
   margin: 20px;
   margin-top: 300px;
   border-radius: 10px;
+  background-color: black;
 }
 
 .bot-card {
@@ -115,6 +116,13 @@ p {
   height: 200px;
   margin: 20px;
   margin-top: 40px;
+  border-radius: 10px;
+}
+
+.bot-card-flipped {
+  background-color: black;
+  width: 140px;
+  height: 200px;
   border-radius: 10px;
 }
 

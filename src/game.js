@@ -5,33 +5,73 @@ class Game {
     const botImg = document.createElement("img");
     switch (botCard) {
       case "fire":
-        botImg.setAttribute("src", `./images/fire.jpg`);
+        botImg.setAttribute("src", `./image/fire.jpg`);
+        botImg.classList.add("bot-card-flipped");
         break;
       case "water":
-        botImg.setAttribute("src", `./images/water.jpg`);
+        botImg.setAttribute("src", `./image/water.jpg`);
+        botImg.classList.add("bot-card-flipped");
+        break;
       case "earth":
-        botImg.setAttribute("src", `./images/earth.jpg`);
+        botImg.setAttribute("src", `./image/earth.jpg`);
+        botImg.classList.add("bot-card-flipped");
         break;
     }
     botFlip.appendChild(botImg);
   }
+  flipBotBack() {
+    const botFlipBack = document.getElementsByClassName("bot-card-flipped");
+    for (let i = 0; i < botFlipBack.length; i++) {
+      botFlipBack[i].remove();
+    }
+  }
+  flipPlayerCards(chosenCard) {
+    const cardsOnPlayerSide = document.getElementsByClassName("card-elements");
+    console.log(cardsOnPlayerSide);
+    for (let i = 0; i < cardsOnPlayerSide.length; i++) {
+      if (cardsOnPlayerSide[i].getAttribute("id") !== `${chosenCard}Img`) {
+        //cardsOnPlayerSide[i].classList.replace("card-elements", "bot-card");
+        cardsOnPlayerSide[i].setAttribute("src", " ");
+      }
+      /*
+      cardsOnPlayerSide[i].setAttribute(
+        "id",
+        `${cardsOnPlayerSide[i].getAttribute("id").replace("Img", "Off")}`
+      );
+      console.log(cardsOnPlayerSide[i].getAttribute("id"));*/
+    }
+  }
+  flipPlayerCardsBack() {
+    const cardsFlipped = document.getElementsByClassName("card-elements");
+    for (let i = 0; i < cardsFlipped.length; i++) {
+      if (i == 0) {
+        cardsOnPlayerSide[i].setAttribute("src", "./image/fire.jpg");
+      } else if (i == 1) {
+        cardsOnPlayerSide[i].setAttribute("src", "./image/earth.jpg");
+      } else {
+        cardsOnPlayerSide[i].setAttribute("src", "./image/water.jpg");
+      }
+    }
+  }
   gameResult(player, bot) {
     let winner = "";
+    const pResult = document.getElementsByTagName("p");
     if (player == "earth" && bot == "water") {
-      winner = "bot";
+      winner = "You Lost! >_<";
     } else if (player == "earth" && bot == "fire") {
-      winner = "player";
+      winner = "You Won! =)";
     } else if (player == "water" && bot == "earth") {
-      winner = "player";
+      winner = "You Won! =)";
     } else if (player == "water" && bot == "fire") {
-      winner = "bot";
+      winner = "You Lost! >_<";
     } else if (player == "fire" && bot == "earth") {
-      winner = "bot";
+      winner = "You Lost! >_<";
     } else if (player == "fire" && bot == "water") {
-      winner = "player";
+      winner = "You Won! =)";
     } else {
-      winner = "empate";
+      winner = "It's a tie! -_-'";
     }
+    pResult[0].innerHTML = `Result : ${winner}`;
   }
 }
 class Player {
@@ -52,10 +92,11 @@ class Player {
 class Bot extends Player {
   constructor(name, health, strengh) {
     super(name, health, strengh);
+    this.cards = ["fire", "earth", "water"];
     this.result = "";
   }
   botCard() {
-    this.result = this.cards[Math.round(Math.random() * 3)];
+    this.result = this.cards[Math.round(Math.random() * 2)];
     return this.result;
   }
 }

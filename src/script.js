@@ -33,4 +33,10 @@ btnFire.addEventListener("click", () => {
   const gameStart = new Game();
   botStatus.botCard();
   gameStart.flipBotCard(botStatus.result);
+  gameStart.gameResult(playerStatus.card, botStatus.result);
+  gameStart.flipPlayerCards("fire");
+  const timeFlip = setTimeout(() => {
+    gameStart.flipBotBack();
+    gameStart.flipPlayerCardsBack();
+  }, 2000);
 });

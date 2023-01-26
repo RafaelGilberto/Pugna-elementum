@@ -173,3 +173,21 @@ section {
 #botInfo {
   margin-top: 40px;
 }
+
+.lastPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+  width: 800px;
+  height: 970px;
+}
+h4 {
+  font-size: 40px;
+}
+#gameEnd {
+  font-size: 60px;
+  margin-top: -7px;
+  color: red;
+}

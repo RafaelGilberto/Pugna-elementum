@@ -93,9 +93,21 @@ class Game {
     this.endGame(player, bot);
   }
   endGame(player, bot) {
-    if (player.health <= 0 && bot.health > 0) {
-    } else if (player.health > 0 && bot.health <= 0) {
-    } else {
+    const gameBoardSection = document.getElementById("gameSection");
+    const gameEndResult = document.getElementById("gameEnd");
+    const lastPage = document.getElementById("lastPage");
+    const elementsImg = document.getElementById("elements-hierarchy");
+    if (player.health <= 0 || bot.health <= 0) {
+      gameBoardSection.classList.replace("gameSection", "hidden");
+      lastPage.classList.replace("hidden", "lastPage");
+      elementsImg.classList.add("hidden");
+      if (player.health <= 0 && bot.health > 0) {
+        gameEndResult.innerHTML = "YOU LOST";
+      } else if (player.health > 0 && bot.health <= 0) {
+        gameEndResult.innerHTML = "YOU WON";
+      } else {
+        gameEndResult.innerHTML = "DRAW";
+      }
     }
   }
 }

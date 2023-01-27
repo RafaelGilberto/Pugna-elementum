@@ -20,9 +20,12 @@ The technologies and languages used in this project were: Git, GitHub, HTML, Jav
 
 ## Links
 
-To play and access the slides used in the project presentation, just click on the links below:
+To play and access the slides used in the project presentation, just click on the links -->
+
 Link to play: [click here.](https://rafaelgilberto.github.io/Pugna-elementum/)
+
 Presentation link: [click here.](https://docs.google.com/presentation/d/1UrZWdSR46jM_VFNiTE-hvszdCKijunMaSYo4kKgBIuU/edit?usp=sharing)
 
 **Have Fun!!!! =)**
+
 ![enter image description here](https://media.giphy.com/media/ahZZZZFGLGhvq/giphy.gif)
